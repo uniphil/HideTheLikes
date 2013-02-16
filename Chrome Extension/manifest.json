@@ -3,7 +3,7 @@
 
     "name" : "Hide Facebook Post Likes (Beta)",
     "description" : "Life is not a popularity contest. Hides likes and shares on Facebook posts so you can stop comparing yourself to everyone else.",
-    "version" : "0.6.2",
+    "version" : "0.6.4",
 
     "icons" : {
         "16" : "img/thumb16.png",
@@ -14,17 +14,20 @@
     "content_scripts": [ {
        "include_globs": [ "*.facebook.*" ],
        "js": [ "js/jquery-1.9.0.min.js", "js/main.js" ],
+       "css" : [ "hider.css" ],
        "matches": [ "http://*.facebook.com/*", "https://*.facebook.com/*" ],
        "run_at": "document_start"
     } ],
 
     "homepage_url" : "http://www.kortaggio.com/",
 
-    "browser_action": {
+    "page_action": {
         "default_icon": "img/icon.png",
         "default_title" : "Hide Facebook Post Likes (Beta)",
         "default_popup": "popup.html"
     },
+
+    "background": {"scripts": ["js/background.js"]},
 
     "update_url": "http://clients2.google.com/service/update2/crx"
 }
